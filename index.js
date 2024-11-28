@@ -6,11 +6,10 @@ const cors = require('@koa/cors');
 const serve = require('koa-static')
 const path = require('path')
 const authController = require('./authController');
-
+require('dotenv').config()
 
 // URL для подключения к MongoDB
-//const dbUrl = 'mongodb+srv://natashka:natashka228@cluster1.5ycsz.mongodb.net/debate_db?retryWrites=true&w=majority&appName=Cluster1';
-const dbUrl = 'mongodb+srv://natashka:natashka228@cluster1.5ycsz.mongodb.net/debate_db?retryWrites=true&w=majority&appName=Cluster1'
+const dbUrl = process.env.DB_URL
 const port = process.env.PORT || 5000;
 const app = new Koa();
 
