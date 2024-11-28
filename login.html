@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+    <div id="header-placeholder"></div>
+    <form id="login-form" action="/login" method="post">
+        <label for="nickname">
+            Нік:
+            <input type="text" name="nickname" id="nickname" required>
+        </label>
+        <label for="password">
+            Пароль:
+            <input type="password" name="password" id="password" required>
+        </label>
+        <button type="submit">Увійти</button>
+    </form>
+    </div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <script src="login.js"></script>
+</body>
+</html>

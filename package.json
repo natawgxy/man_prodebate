@@ -1,0 +1,27 @@
+{
+  "name": "man_debate",
+  "version": "1.0.0",
+  "main": "db.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^13.1.0",
+    "bcryptjs": "^2.4.3",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^2.15.3",
+    "koa-body": "^6.0.1",
+    "koa-bodyparser": "^4.4.1",
+    "koa-static": "^5.0.0",
+    "koa-validator": "^0.6.4",
+    "mongoose": "^8.7.1",
+    "node-cron": "^3.0.3",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Пошук дебатного клубу</h1>
+    <label for="club-name">Назва клубу:</label>
+    <input class="filter" type="text" id="club-name" placeholder="Назва...">
+
+    <select id="experience" class="filter">
+        <option value="">Оберіть досвід</option>
+        <option value="mixed-experience">Змішаний</option>
+        <option value="no-experience">Немає досвіду</option>
+        <option value="half-year">Пів року</option>
+        <option value="one-year">1 рік</option>
+        <option value="one-half-year">1,5 і більше року</option>
+    </select>
+
+    <select id="age" class="filter">
+        <option value="">Вік учасників</option>
+        <option value="mixed">Змішаний</option>
+        <option value="12-14">12-14</option>
+        <option value="14-18">14-18</option>
+        <option value="18+">18+</option>
+    </select>
+
+    <button onclick="searchClubs()">Шукати</button>
+
+    <div class="results"></div>
+
+    <script src="search.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                document.body.appendChild(script)
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

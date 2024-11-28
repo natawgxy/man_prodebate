@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.registration-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 50px;
+    background: #0900b7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.registration-box h2 {
+    text-align: center;
+    color: #f0f8ff;
+    margin-bottom: 1em;
+}
+
+.input-box {
+    margin: 10px 0;
+}
+
+.input-box label {
+    display: block;
+    font-size: 0.9em;
+    color: #f0f8ff;
+    margin-bottom: 6px;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #0900b7;
+    background: #f0f8ff;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+    border-color: #79aaff;
+    background: #ffffff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #6aa6ff;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0044cc;
+    box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.6);
+}
+
+
+fieldset {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f0f8ff;
+}
+
+legend {
+    padding: 0 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+#experience {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #0900b7;
+    background-color: #f0f8ff;
+    border: 2px solid #ffffff;
+    border-radius: 8px; /* Rounds the edges */
+    appearance: none; /* Hides default arrow for custom styling */
+    outline: none;
+    transition: 0.3s;
+}
+
+#experience:focus {
+    border-color: #79aaff;
+    background-color: #ffffff;
+}

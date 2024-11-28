@@ -1,0 +1,76 @@
+/* General styling for the body and main container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header-placeholder {
+    width: 100%;
+}
+
+/* Labels styling */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #0900b7;
+}
+
+/* Div styling for each info section */
+#tournament-name,
+#judges,
+#start-date,
+#end-date,
+#registered_commands,
+#topics,
+#results {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 80%;
+    max-width: 500px;
+    margin-top: 5px;
+    font-size: 1em;
+    color: #1b1717;
+    border: 2px solid #0011ff;
+}
+
+/* Specific styling for each section title */
+#tournament-name {
+    color: #0900b7;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Highlighting future or past tournament sections */
+#registered_commands, #topics, #results {
+    margin-top: 15px;
+}
+
+/* Loading text style */
+div:empty::before {
+    content: 'Завантаження...';
+    color: #888;
+    font-style: italic;
+}
+
+/* Styling for better responsiveness */
+@media (max-width: 600px) {
+    label {
+        font-size: 1em;
+    }
+
+    #tournament-name, #judges, #start-date, #end-date, #registered_commands, #topics, #results {
+        width: 90%;
+        padding: 8px;
+    }
+}

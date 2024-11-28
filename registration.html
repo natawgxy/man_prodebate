@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body> 
+    <div class="container">
+    <div id="header-placeholder"></div>
+    <form class="registration-box" id="registration-form" action="/registration" method="post" enctype="multipart/form-data">
+        <div class="input-box">
+            <label for="name-and-surname">
+                Ім'я та прізвище:
+                <input type="text" name="name_and_surname" id="name-and-surname" required autofocus>
+            </label>
+        </div>
+        <div class="input-box">
+            <label for="age">
+                Вік:
+                <input type="number" name="age" id="age" required>
+            </label>
+        </div>
+        <div class="input-box">
+            <label for="nickname">
+                Нік:
+                <input type="text" name="nickname" id="nickname" required>
+            </label>
+        </div>
+        <div class="input-box">
+            <label for="email">
+                Пошта:
+                <input class="input-box" type="email" name="email" id="email" required>
+            </label>
+        </div>
+        <div class="input-box">
+            <label for="password">
+                Пароль:
+                <input class="input-box" type="password" name="password" id="password" required>
+            </label>
+        </div>
+        <label for="experience">
+            Досвід у дебатах:
+            <select id="experience" name="experience" required>
+                <option value=""></option>
+                <option value="no-experience">Немає досвіду</option>
+                <option value="half-year">Пів року</option>
+                <option value="one-year">1 рік</option>
+                <option value="one-half-year">1,5 і більше року</option>
+            </select>
+        </label>
+        <fieldset>
+            <legend>Ваші цілі?</legend>
+            <label for="goal-participate">
+                <input type="checkbox" id="goal-participate" name="goals" value="participate"> Брати участь у дебатах 
+            </label>
+            <label for="goal-organize">
+                <input type="checkbox" id="goal-organize" name="goals" value="organize"> Організувати клуб 
+            </label>
+            <label for="goal-judge">
+                <input type="checkbox" id="goal-judge" name="goals" value="judge"> Бути суддею турнірів
+            </label>
+        </fieldset>
+        <button type="submit">Зареєструватися!</button>
+    </form>
+    </div>
+    <script src="registration.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                document.body.appendChild(script)
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турніри</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tournaments.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <h2>Майбутні турніри:</h2>
+    <table id="future-tournaments-table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Судді</th>
+                <th>Дата початку</th>
+                <th>Дата закінчення</th>
+                <th>Кількість місць:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="5">завантаження...</td></tr>
+            <!-- добавить кнопку с регистрацией, после нажатия котой перекидывает на гугл-форму регистрации, созданную организатором -->
+        </tbody>
+    </table>
+    
+    <h2>Минулі турніри:</h2>
+    <table id="past-tournaments-table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Судді</th>
+                <th>Дата початку</th>
+                <th>Дата закінчення</th>
+                <th>Резолюції</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="5">Заватнаження...</td></tr>
+        </tbody>
+    </table>
+    <script src="tournaments.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                document.body.appendChild(script)
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

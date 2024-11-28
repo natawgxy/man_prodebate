@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #0900b7;
+        }
+
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f4f4f9;
+            border-radius: 8px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #0900b7;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #0b33db;
+        }
+
+        .faq-answer {
+            padding: 10px 15px;
+            display: none;
+            background: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        .faq-answer p,
+        .faq-answer ol,
+        .faq-answer ul {
+            margin: 5px 0;
+        }
+
+        a {
+            color: #0900b7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .youtube-link {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div class="faq">
+        <h1>Часті питання</h1>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Що таке дебати? ▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Дебати - це дискусія маж двома сторонами на певну тему.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Як взяти участь в дебатах на цьому сайті? ▼</span>
+            </div>
+            <div class="faq-answer">
+                <span>Якщо ви не є учасником дебатного клубу, то зробіть ці кроки:</span>
+                <ol>
+                    <li>1. Зайдіть у свій акаунт, натиснувши кнопку "увійти"</li>
+                    <li>2. Натисніть на іконку пошуку біля акаунута</li>
+                    <li>3. Введіть зручні для Вас параметри пошуку й натисніть кнопку "Шукати"</li>
+                    <li>4. Знайдіть клуб, який вам більш за всіх до вподоби й натисніть на кнопку "Детальніше"</li>
+                    <li>5. Натисніть кнопку "Вступити в клуб"</li>
+                </ol>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Де можна подивитися приклад гри в дебати? ▼</span>
+            </div>
+            <div class="faq-answer">
+                <span>За цим посиланням можна подивитися як проводилися дебати офлайн між учнями та вчителями Харківського ліцею №154</span>
+                <p class="youtube-link" href="https://youtu.be/FgmyetQ7oDw?si=p8TaJHbmcYoPpTpn&t=198" target="_blank">https://youtu.be/FgmyetQ7oDw?si=p8TaJHbmcYoPpTpn&t=198</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Які можуть бути резолюції? ▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Резолюції стосуються різних питань на проблем.</p>
+                <p>Приклади:</p>
+                <ul>
+                    <li>"Ця Палата зобов'яже учнів школи включати камери на уроках під час дистанційного навчання."</li>
+                    <li>"Якщо вчені дізнаються, що найближчим часом Земля буде знищена, то Ця Палата приховає цю інформацію від людей"</li>
+                    <li>"Ця палата вважає, що інтелектуальні ігри (приклад: "Що?Де?Коли?", "Шахи") варто ввести як навчальний предмет у школах."</li>
+                </ul>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Чи потрібно готуватися до гри, шукати щось по темі? ▼</span>
+            </div>
+            <div class="faq-answer">
+                <span>Ні, тема не дається заздалегідь</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

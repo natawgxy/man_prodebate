@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="club_info.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <label for="club_name">Назва клубу:</label>
+    <div id="club_name">Завантаження...</div>
+
+    <button id="join-club" class="hidden">Вступити в клуб</button>
+
+    <label for="judge_organizator">Суддя/органзізатор</label>
+    <div id="judge_organizator">Завантаження...</div>
+
+    <!-- <button id="write-to-judge">Написати організатору</button> -->
+
+    <label for="club_description">Опис клубу:</label>
+    <div id="club_description">Завантаження...</div>
+
+    <label for="links">Посилання:</label>
+    <div id="links">Завантаження...</div>
+
+    <label for="participants">Учасники</label>
+    <div id="participants">Завантаження...</div>
+    
+    <script src="get_club_info.js"></script>
+    <script src="joinclub.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                document.body.appendChild(script)
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

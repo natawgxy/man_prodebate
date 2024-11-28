@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="organize_tournament.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h2>Організувати майбутній турнір</h2>
+    <form id="organize-tournament-form">
+        <label for="tournament-name">
+            Назва турніру:
+            <input type="text" id="tournament-name" name="tournament_name">
+        </label>
+
+        <label for="tournament-judges">
+            Судді:
+            <input type="text" id="tournament-judges" name="judges" placeholder="Введіть нікнейми суддів через кому">
+        </label>
+
+        <label for="start-date">
+            Дата початку:
+            <input type="date" id="start-date" name="start_date" required><br><br>
+        </label>
+
+        <label for="end-date">
+            Дата закінчення:
+            <input type="date" id="end-date" name="end_date" required><br><br>
+        </label>
+
+        <label for="tournament-places">
+            Передбачувана кількість учасників
+            <input type="number" id="tournament-places" name="tournament_places">
+        </label>
+
+        <label for="form-link">
+            Посилання на гугл-форму для реєстрації:
+            <input type="text" id="form-link">
+        </label>
+
+        <button id="create-tournament" type="submit">Створити турнір</button>
+    </form>
+    <script src="organize_tournament.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Профіль користувача</h1>
+    <label for="nickname">Нік: </label>
+    <div id="nickname">Завантаження...</div>
+
+    <label for="name-and-surname">Ім'я та прізвище: </label>
+    <div id="name-and-surname">Завантаження...</div>
+
+    <label for="age">Вік: </label>
+    <div id="age">Завантаження...</div>
+
+    <label for="experience">Досвід у дебатах: </label>
+    <div id="experience">Завантаження...</div>
+
+    <label for="in_club_name">Член клубу:</label>
+    <div id="in_club_name">Завантаження...</div>
+
+    <label for="role_in_club">Роль у клубі:</label>
+    <div id="role_in_club">Завантаження...</div>
+
+    <button id="organize-club" style="display: none;">Організувати клуб</button>
+    <button id="organize-tournament-btn" style="display: none;">Організувати турнір</button>
+    
+    <button id="search-club-btn">Знайти клуб</button>
+
+    <script src="profile.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                script.onload = () => console.log('header.js loaded successfully');
+                document.body.appendChild(script);
+                // document.body.appendChild(script)
+                // console.log("Header and header.js loaded")
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

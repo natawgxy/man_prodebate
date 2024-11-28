@@ -1,0 +1,19 @@
+<header>
+    <div>
+        <ul class="header-menu">
+            <li><a href="faq.html">FAQ/ресурси</a></li>
+            <li><a href="tournaments.html">Турніри</a></li>
+            <li><a href="index.html">Головна</a></li>
+            <!-- <li><a href="news.html">Новини</a></li> -->
+        </ul>
+        <a href="registration.html" class="register-button" id="signup-button">Зареєструватися</a>
+        <a href="login.html" class="login-button" id="login-button">Увійти</a>
+
+        <div id="user-menu" style="display: none;">
+            <button id="search" onclick="redirectToSearchClubs()"><img src="./imgs/search-icon.png" alt="search_clubs"></button>
+            <button id="profile" onclick="redirectToProfile()"><img src="./imgs/account-icon.png" alt="profile"></button>
+            <button id="logout" onclick="logout()"><img src="./imgs/logout-icon.png" alt="logout"></button>
+        </div>
+    </div>
+    <script src="header.js"></script>
+</header>

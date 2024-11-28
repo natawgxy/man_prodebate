@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tour_info.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <label for="tournament-name">Назва турніру:</label>
+    <div id="tournament-name">Завантаження...</div>
+
+    <label for="judges">Судді:</label>
+    <div id="judges">Завантаження...</div>
+
+    <label for="start-date">Дата початку:</label>
+    <div id="start-date">Завантаження...</div>
+
+    <label for="end-date">Дата закінчення:</label>
+    <div id="end-date">Завантаження...</div>
+
+    <!-- для будущих турниров -->
+    <!-- <label for="registered_commands"></label>
+    <div id="registered_commands">Завантаження</div> -->
+
+    <!-- для прошедших турниров -->
+    <label for="topics">Резолюції:</label>
+    <div id="topics">Завантаження...</div>
+
+    <!-- для организатора прошедшего турика -->
+    <button class="add_btn" id="add_resolutions" style="display: none;">Додати резолюції турніру</button>
+    <!-- появляется поле ввода и кнопка "сохранить"-->
+
+    <!-- в виде таблички: место, название команды -->
+    <label for="results">Результати:</label>
+    <table id="results" border="1">
+        <tr>
+            <th>Місце</th>
+            <th>Команда</th>
+        </tr>
+    </table>
+    <button class="add_btn" id="add_results" style="display: none;">Додати результати турніру</button>
+
+    <script src="get_tour_info.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data
+                const script = document.createElement("script")
+                script.src = "header.js"
+                document.body.appendChild(script)
+                console.log("Header and header.js loaded")
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>

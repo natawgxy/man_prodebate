@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f4f4f9; /* Light background color for visibility */
+}
+
+#header-placeholder {
+    width: 100%;
+}
+
+label {
+    font-size: 1.1em;
+    color: #0900b7; /* Dark blue color for labels */
+    margin-top: 20px; /* Space above labels */
+}
+
+#club_name,
+#judge_organizator,
+#club_description,
+#links,
+#participants {
+    width: 100%;
+    max-width: 450px; /* Set max width for data fields */
+    padding: 15px;
+    font-size: 1em;
+    color: #333; /* Dark gray color for text */
+    background: #ffffff; /* White background for better readability */
+    border: 2px solid #0011ff;
+    border-radius: 8px;
+    margin-bottom: 1.5em; /* Space below each field */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+button {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px;
+    background-color: #0066ff; /* Button color */
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; /* Space below buttons */
+}
+
+button.hidden {
+    display: none; /* Hide button if not applicable */
+}
+
+button:hover {
+    background-color: #0044cc; /* Darker shade on hover */
+    box-shadow: 0 0 12px 4px rgba(0, 26, 255, 0.6);
+}
