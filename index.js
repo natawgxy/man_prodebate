@@ -10,15 +10,17 @@ require('dotenv').config()
 
 // URL для подключения к MongoDB
 const dbUrl = process.env.DB_URL
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 10000;
 const app = new Koa();
 
 app.use(serve(path.join(__dirname, './man_debate')));
 
+// app.use(cors({
+//   origin: 'http://127.0.0.1:10000'
+// }))
 app.use(cors({
-  origin: 'http://127.0.0.1:5500'
+  origin: 'https://man-prodebate.onrender.com/'
 }))
-
 app.use(koaBody({
   multipart: true, 
   urlencoded: true 
