@@ -47,9 +47,7 @@ cron.schedule('0 0 * * *', () => {
 async function startServer() {
   try {
     // Подключение к MongoDB
-    await mongoose.connect(dbUrl, {
-      useNewUrlParser: true
-    });
+    await mongoose.connect(dbUrl)
     console.log('Connected to MongoDB');
 
     // Запуск Koa-сервера

@@ -93,9 +93,23 @@ header {
 }
 
 #user-menu {
-  display: inline-block; /* Выстраиваем кнопки в строку */
+  display: flex; /* Обеспечиваем горизонтальное расположение */
   gap: 10px; /* Отступы между кнопками */
+  align-items: center; /* Выравнивание кнопок по центру по вертикали */
+  justify-content: center;
+}
+
+.trash{
+  /* display: inline-block;
+  vertical-align: middle */
+  display: flex;
   align-items: center;
+}
+
+#search, #profile, #logout{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .header-menu a{
