@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('registration-form').addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    const check_skills = document.getElementById('check-skills-btn')
+    check_skills.addEventListener('click', function(){
+        window.location.href = 'check_skills.html'
+    })
 
+    document.getElementById('registration-form').addEventListener('submit', function(event){
+        event.preventDefault(); 
         const form = document.getElementById('registration-form');
         const form_data = new FormData(form);
 
