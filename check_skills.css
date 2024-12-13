@@ -20,7 +20,45 @@ body{
     font-size: 50px;
     font-weight: 600;
 }
+.timer2{
+    background-color: rgba(255, 255, 0, 0.668);
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 600;
+}
 .topic{
     display: flex;
     display: inline-block;
+}
+
+#start{
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+    padding: 10px;
+    background-color: #3dd704;
+}
+
+#finish{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: none;
+    cursor: pointer;
+    background-color: #0900b7;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.attention{
+    font-size: 45px;
+    color: red;
 }

@@ -120,3 +120,13 @@ input[type="checkbox"] {
     border-color: #79aaff;
     background-color: #ffffff;
 }
+
+#check-skills-btn{
+    background-color: #6ff9fe;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    margin: 20px;
+}

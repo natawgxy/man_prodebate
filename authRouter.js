@@ -91,6 +91,6 @@ router.get('/get_user_data', controller.get_user_data)
 router.get('/get_tour_info/:id', controller.get_tour_info)
 router.post('/add_resolutions/:id', controller.add_resolutions)
 router.post('/add_results/:id', controller.add_results)
-
+// router.post('/analyze', controller.analyze_speech)
 
 module.exports = router

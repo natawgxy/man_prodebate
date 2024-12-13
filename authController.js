@@ -502,6 +502,23 @@ class authController{
             ctx.body = { message: "Помилка сервера" }
         }
     }
+    // async analyze_speech(ctx){
+    //     try {
+    //         const speech = ctx.request.body
+    //         if (!speech) {
+    //             ctx.status = 400
+    //             ctx.body = { error: "Текст для аналізу не переданий." }
+    //             return;
+    //         }
+    //         const analysis = #(с пайтоновского скрипта вытянуть анализ спича)
+    //         ctx.status = 200
+    //         ctx.body = {analysis}
+    //     } catch (error) {
+    //         console.log("Сталася помилка при аналізи вашого спіча", error)
+    //         ctx.status = 500
+    //         ctx.body = {"Сталася помилка при аналізи вашого спіча"}
+    //     }
+    // }
 }
 
 // экспортируем объект класса
