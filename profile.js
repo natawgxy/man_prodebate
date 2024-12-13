@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return
     }
     const nickname = localStorage.getItem('nickname')
-    fetch(`http://localhost:5000/profile?nickname=${nickname}`, {
+    fetch(`http://localhost:10000/profile?nickname=${nickname}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${tokenn}`

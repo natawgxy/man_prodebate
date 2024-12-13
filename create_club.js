@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
             schedule
         }
         const tokenn = localStorage.getItem('token')
-        fetch('http://localhost:5000/create_club', {
+        fetch('http://localhost:10000/create_club', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

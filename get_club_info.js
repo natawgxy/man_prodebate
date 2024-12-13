@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const clubId = urlParams.get('id')
     console.log('Club ID:', clubId);
 
-    fetch(`http://localhost:5000/getclubinfo/${clubId}`)
+    fetch(`http://localhost:10000/getclubinfo/${clubId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Сетевая ошибка при получении данных о клубе');

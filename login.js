@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('login-form');
         const form_data = new FormData(form);
 
-        fetch('http://localhost:5000/login', {
+        fetch('http://localhost:10000/login', {
             method: 'POST',
             body: form_data
         })

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         console.log("Отправляемые данные", data)
         const tokenn = localStorage.getItem('token')
-        fetch('http://localhost:5000/create_tournament', {
+        fetch('http://localhost:10000/create_tournament', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

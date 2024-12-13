@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const tourId = urlParams.get('id');
     
     try {
-        const response = await fetch(`http://localhost:5000/get_tour_info/${tourId}`);
+        const response = await fetch(`http://localhost:10000/get_tour_info/${tourId}`);
         if (!response.ok) {
             throw new Error('Сетевая ошибка при получении данных о турнире');
         }

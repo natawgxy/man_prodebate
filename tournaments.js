@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://localhost:5000/get_all_tournaments')
+    fetch('http://localhost:10000/get_all_tournaments')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

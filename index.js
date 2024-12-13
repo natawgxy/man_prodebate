@@ -18,9 +18,24 @@ app.use(serve(path.join(__dirname, './man_debate')));
 // app.use(cors({
 //   origin: 'http://127.0.0.1:10000'
 // }))
+// app.use(cors({
+//   origin: 'https://man-prodebate.onrender.com/'
+// }))
 app.use(cors({
-  origin: 'https://man-prodebate.onrender.com/'
-}))
+  origin: (ctx) => {
+    const allowedOrigins = [
+      'http://127.0.0.1:5500', // Локальная разработка
+      'https://man-prodebate.onrender.com/' // Деплойнутый домен
+    ];
+    const requestOrigin = ctx.headers.origin;
+    if (allowedOrigins.includes(requestOrigin)) {
+      return requestOrigin; // Разрешить конкретный origin
+    }
+    return 'https://man-prodebate.onrender.com/'; // Базовый разрешенный домен
+  },
+  credentials: true, // Если нужны куки или авторизация
+}));
+
 app.use(koaBody({
   multipart: true, 
   urlencoded: true 
