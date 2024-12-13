@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('login-form');
         const form_data = new FormData(form);
 
-        fetch('http://localhost:10000/login', {
+        fetch('https://man-prodebate.onrender.com/login', {
             method: 'POST',
             body: form_data
         })
