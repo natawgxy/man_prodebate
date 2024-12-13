@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
             schedule
         }
         const tokenn = localStorage.getItem('token')
-        fetch('http://localhost:10000/create_club', {
+        fetch('https://man-prodebate.onrender.com/create_club', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

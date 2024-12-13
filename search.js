@@ -9,7 +9,7 @@ function searchClubs(){
         age: age || ''
     }
     console.log('Параметры запроса:', searchParams)
-    fetch(`http://localhost:10000/search_clubs?${new URLSearchParams(searchParams)}`)
+    fetch(`https://man-prodebate.onrender.com/search_clubs?${new URLSearchParams(searchParams)}`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Помилка пошуку клубів')

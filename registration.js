@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(goal => goal.value);
         form_data.set('goals', JSON.stringify(goals)); 
 
-        fetch('http://localhost:10000/registration', {
+        fetch('https://man-prodebate.onrender.com/registration', {
             method: 'POST',
             body: form_data
         })

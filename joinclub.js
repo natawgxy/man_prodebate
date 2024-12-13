@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         joinClubButton.addEventListener('click', async () => {
             const urlParams = new URLSearchParams(window.location.search)
             const clubId = urlParams.get('id')
-            const response = await fetch('http://localhost:10000/join_club', {
+            const response = await fetch('https://man-prodebate.onrender.com/join_club', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

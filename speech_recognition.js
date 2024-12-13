@@ -1,6 +1,6 @@
 const analysis = async(speechText) => {
     try {
-        const response = await fetch("http://localhost:10000/analyze", {
+        const response = await fetch("https://man-prodebate.onrender.com/analyze", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
