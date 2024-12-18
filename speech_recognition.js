@@ -36,6 +36,7 @@ start_button.addEventListener("click", () => {
         transcription = Array.from(event.results)
             .map((result) => result[0].transcript)
             .join("");
+        console.log("Розпізнаний текст:", transcription)
         output.textContent = transcription
         speach_rec.style.display = "none"
         analysis(transcription)
