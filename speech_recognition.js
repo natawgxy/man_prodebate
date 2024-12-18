@@ -25,13 +25,18 @@ const analysis = async(speechText) => {
 const start_button = document.getElementById("start")
 const speach_rec = document.getElementById("recording-indicator")
 const finish_speech = document.getElementById('finish')
+const output = document.getElementById('output')
 start_button.addEventListener("click", () => {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)()
     let transcription = "" 
     speach_rec.style.display = "block"
     recognition.lang = 'uk-UA'
+    output.textContent = ""
     recognition.onresult = (event) => {
-        transcription = event.results[0][0].transcript
+        transcription = Array.from(event.results)
+            .map((result) => result[0].transcript)
+            .join("");
+        output.textContent = transcription
         speach_rec.style.display = "none"
         analysis(transcription)
     }
@@ -40,7 +45,9 @@ start_button.addEventListener("click", () => {
         speach_rec.style.display = "none"
     }
     recognition.onend = () => {
-        speach_rec.style.display = "none";
+        speach_rec.style.display = "none"
+        output.textContent = transcription
+        analysis(transcription)
     }
     finish_speech.addEventListener("click", () => {
         recognition.stop()
