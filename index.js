@@ -24,14 +24,14 @@ app.use(serve(path.join(__dirname, './man_debate')));
 app.use(cors({
   origin: (ctx) => {
     const allowedOrigins = [
-      'http://127.0.0.1:5500', // Локальная разработка
-      'https://man-prodebate.onrender.com/' // Деплойнутый домен
+      'http://127.0.0.1:5500', 
+      'https://man-prodebate.onrender.com/'
     ];
     const requestOrigin = ctx.headers.origin;
     if (allowedOrigins.includes(requestOrigin)) {
-      return requestOrigin; // Разрешить конкретный origin
+      return requestOrigin;
     }
-    return 'https://man-prodebate.onrender.com/'; // Базовый разрешенный домен
+    return 'https://man-prodebate.onrender.com/';
   },
   credentials: true, // Если нужны куки или авторизация
 }));

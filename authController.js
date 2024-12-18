@@ -8,8 +8,11 @@ const jwt = require('jsonwebtoken')
 const {validationResult} = require('koa-validator');
 const {secret} = require("./config")
 
-import OpenAI from "openai";
-const openai = new OpenAI();
+const OpenAI = require("openai")
+require('dotenv').config()
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+})
 
 const generateAccessToken = (id, nickname) => {
     const payload = {
@@ -534,7 +537,7 @@ class authController{
         } catch (error) {
             console.log("Сталася помилка при аналізи вашого спіча", error)
             ctx.status = 500
-            ctx.body = {"Сталася помилка при аналізи вашого спіча"}
+            ctx.body = { message: "Сталася помилка при аналізи вашого спіча"}
         }
     }
 }
