@@ -8,6 +8,9 @@ const jwt = require('jsonwebtoken')
 const {validationResult} = require('koa-validator');
 const {secret} = require("./config")
 
+import OpenAI from "openai";
+const openai = new OpenAI();
+
 const generateAccessToken = (id, nickname) => {
     const payload = {
         id,
@@ -502,23 +505,38 @@ class authController{
             ctx.body = { message: "Помилка сервера" }
         }
     }
-    // async analyze_speech(ctx){
-    //     try {
-    //         const speech = ctx.request.body
-    //         if (!speech) {
-    //             ctx.status = 400
-    //             ctx.body = { error: "Текст для аналізу не переданий." }
-    //             return;
-    //         }
-    //         const analysis = #(с пайтоновского скрипта вытянуть анализ спича)
-    //         ctx.status = 200
-    //         ctx.body = {analysis}
-    //     } catch (error) {
-    //         console.log("Сталася помилка при аналізи вашого спіча", error)
-    //         ctx.status = 500
-    //         ctx.body = {"Сталася помилка при аналізи вашого спіча"}
-    //     }
-    // }
+    async analyze_speech(ctx){
+        try {
+            const speech = ctx.request.body
+            if (!speech) {
+                ctx.status = 400
+                ctx.body = { error: "Текст для аналізу не переданий." }
+                return;
+            }
+            const completion = await openai.chat.completions.create({
+                model: "gpt-4",
+                messages: [
+                    { "role": "system", "content": "Ти професійний суддя дебатів." },
+                    {
+                        "role": "user",
+                        "content": `Проаналізуй цей спіч: ${speech}. Оціни його за такими критеріями: вправне формулювання тези, структурованість, послідовність і логічність висловлення думок, вагомість аргументів, дотримання теми, наявність доказів аргументів (приклади з життя, літератури і тд). В кінці визнач досвід гри в дебати користувача: Немає досвіду, Пів року, 1 рік, 1,5 і більше року.`
+                    }
+                ]
+            });
+            const analysis = completion.choices[0]?.message?.content
+            if (!analysis){
+                ctx.status = 500
+                ctx.body = {error: "Не вдалося зробити аналіз спіча"}
+                return
+            }
+            ctx.status = 200
+            ctx.body = {analysis}
+        } catch (error) {
+            console.log("Сталася помилка при аналізи вашого спіча", error)
+            ctx.status = 500
+            ctx.body = {"Сталася помилка при аналізи вашого спіча"}
+        }
+    }
 }
 
 // экспортируем объект класса
