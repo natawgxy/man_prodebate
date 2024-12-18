@@ -47,10 +47,11 @@ start_button.addEventListener("click", () => {
     }
     recognition.onend = () => {
         speach_rec.style.display = "none"
-        output.textContent = transcription
-        analysis(transcription)
     }
     finish_speech.addEventListener("click", () => {
+        output.textContent = transcription
+        analysis(transcription)
+        speach_rec.style.display = "none"
         recognition.stop()
     })
     recognition.start()
