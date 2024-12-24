@@ -1,5 +1,6 @@
 const analysis = async(speechText) => {
     try {
+        console.log("Такий текст відправляється на сервер для аналізу:", speechText)
         const response = await fetch("https://man-prodebate.onrender.com/analyze", {
             method: "POST",
             headers: {
@@ -8,6 +9,7 @@ const analysis = async(speechText) => {
             body: JSON.stringify({speech: speechText}) 
         })
         const result = await response.json()
+        console.log("Відповідь сервера на запит про аналіз спіча:", result)
         const res = document.getElementById('results')
         if (result.analysis){
             res.textContent = result.analysis

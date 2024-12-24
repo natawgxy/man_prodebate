@@ -510,12 +510,15 @@ class authController{
     }
     async analyze_speech(ctx){
         try {
+            console.log("Отриманий запит:", ctx.request.body)
             const {speech} = ctx.request.body
             if (!speech) {
                 ctx.status = 400
                 ctx.body = { error: "Текст для аналізу не переданий." }
                 return;
             }
+            console.log("Отриманий спіч:", speech)
+            console.log("Тип даних:", typeof speech)
             const completion = await openai.chat.completions.create({
                 model: "gpt-4",
                 messages: [
