@@ -520,7 +520,7 @@ class authController{
             console.log("Отриманий спіч:", speech)
             console.log("Тип даних:", typeof speech)
             const completion = await openai.chat.completions.create({
-                model: "gpt-4",
+                model: "gpt-3.5-turbo",
                 messages: [
                     { "role": "system", "content": "Ти професійний суддя дебатів." },
                     {
@@ -529,6 +529,11 @@ class authController{
                     }
                 ]
             });
+            if (!completion.choices || !completion.choices.length) {
+                ctx.status = 500;
+                ctx.body = { error: "Відповідь від OpenAI пуста." };
+                return;
+            }
             const analysis = completion.choices[0]?.message?.content
             if (!analysis){
                 ctx.status = 500
@@ -538,7 +543,7 @@ class authController{
             ctx.status = 200
             ctx.body = {analysis}
         } catch (error) {
-            console.log("Сталася помилка при аналізи вашого спіча", error)
+            console.error("Сталася помилка при аналізи вашого спіча:", error.response?.data || error.message || error)
             ctx.status = 500
             ctx.body = { message: "Сталася помилка при аналізи вашого спіча"}
         }
