@@ -510,7 +510,7 @@ class authController{
     }
     async analyze_speech(ctx){
         try {
-            const speech = ctx.request.body
+            const {speech} = ctx.request.body
             if (!speech) {
                 ctx.status = 400
                 ctx.body = { error: "Текст для аналізу не переданий." }

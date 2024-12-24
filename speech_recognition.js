@@ -53,6 +53,7 @@ start_button.addEventListener("click", () => {
         analysis(transcription)
         speach_rec.style.display = "none"
         recognition.stop()
+        console.log("Голосовий ввід завершено")
     })
     recognition.start()
 })
