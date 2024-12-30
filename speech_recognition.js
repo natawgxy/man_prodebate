@@ -33,7 +33,7 @@ let transcription = ""
 let is_rec_going = false
 let recognition
 function start_rec_session(){ 
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)()
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)()
     speach_rec.style.display = "block"
     recognition.lang = 'uk-UA'
     output.textContent = ""
@@ -57,20 +57,21 @@ function start_rec_session(){
     }
     recognition.onend = () => {
         speach_rec.style.display = "none"
-        if (!is_rec_going) start_rec_session(); else {
+        if (is_rec_going) recognition.start(); else {
             console.log("Розпізнавання завершено")
             console.log("Розпізнаний текст:", transcription)
         }
     }
-    finish_speech.addEventListener("click", () => {
-        output.textContent = transcription
-        analysis(transcription)
-        speach_rec.style.display = "none"
-        recognition.stop()
-        console.log("Голосовий ввід завершено")
-    })
     recognition.start()
 }
+finish_speech.addEventListener("click", () => {
+    output.textContent = transcription
+    analysis(transcription)
+    speach_rec.style.display = "none"
+    recognition.stop()
+    console.log("Голосовий ввід завершено")
+})
+
 function start_rec(time = 5){
     const tt = time * 60 * 1000
     is_rec_going = true 
