@@ -543,9 +543,16 @@ class authController{
             ctx.status = 200
             ctx.body = {analysis}
         } catch (error) {
-            console.error("Сталася помилка при аналізи вашого спіча:", error.response?.data || error.message || error)
-            ctx.status = 500
-            ctx.body = { message: "Сталася помилка при аналізи вашого спіча"}
+            console.error("Сталася помилка при аналізи вашого спіча:");
+            console.error("Повний об'єкт помилки:", error); // Логирует весь объект ошибки
+            console.error("Відповідь сервера:", error.response?.data || "Немає відповіді");
+            console.error("Стек помилки:", error.stack || "Стек недоступний");
+
+            ctx.status = 500;
+            ctx.body = {
+                message: "Сталася помилка при аналізи вашого спіча",
+                error: error.response?.data || error.message || "Невідома помилка"
+            }
         }
     }
 }

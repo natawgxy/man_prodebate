@@ -33,7 +33,7 @@ app.use(cors({
     }
     return 'https://man-prodebate.onrender.com/';
   },
-  credentials: true, // Если нужны куки или авторизация
+  credentials: true,
 }));
 
 app.use(koaBody({
