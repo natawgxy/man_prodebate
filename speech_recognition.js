@@ -52,13 +52,16 @@ function start_rec_session(){
         output.textContent = transcription
     }
     recognition.onerror = (event) => {
-        console.error("Помилка розпізнавання:", event.error)
-        speach_rec.style.display = "none"
-        is_rec_going = false
+        console.error("Помилка розпізнавання:", event.error);
+        speach_rec.style.display = "none";
+        if (is_rec_going) {
+            console.log("Спроба перезапуску розпізнавання після помилки...");
+            recognition.start();
+        }
     }
     recognition.onend = () => {
         speach_rec.style.display = "none"
-        if (!is_rec_going) recognition.start(); else {
+        if (is_rec_going) recognition.start(); else {
             console.log("Розпізнавання завершено")
             console.log("Розпізнаний текст:", transcription)
         }
