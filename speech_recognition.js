@@ -49,6 +49,7 @@ function start_rec_session(){
         console.log("Розпізнаний текст:", text)
         speach_rec.style.display = "none"
         transcription += text + " "
+        output.textContent = transcription
     }
     recognition.onerror = (event) => {
         console.error("Помилка розпізнавання:", event.error)
@@ -57,7 +58,7 @@ function start_rec_session(){
     }
     recognition.onend = () => {
         speach_rec.style.display = "none"
-        if (is_rec_going) recognition.start(); else {
+        if (!is_rec_going) recognition.start(); else {
             console.log("Розпізнавання завершено")
             console.log("Розпізнаний текст:", transcription)
         }
