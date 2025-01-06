@@ -47,16 +47,20 @@ function start_rec_session(){
             .map((result) => result[0].text)
             .join("");
         console.log("Розпізнаний текст:", text)
+        if (text.trim()){
+            transcription += text + " "
+            output.textContent = transcription
+        } else {
+            console.log("Розпізнаний текст порожній")
+        }
         speach_rec.style.display = "none"
-        transcription += text + " "
-        output.textContent = transcription
     }
     recognition.onerror = (event) => {
-        console.error("Помилка розпізнавання:", event.error);
+        console.error("Помилка розпізнавання:", event.error)
         speach_rec.style.display = "none";
-        if (is_rec_going) {
-            console.log("Спроба перезапуску розпізнавання після помилки...");
-            recognition.start();
+        if (is_rec_going && event.error !== 'not-allowed') {
+            console.log("Спроба перезапуску розпізнавання після помилки...")
+            if (recognition && recognition.state !== "started") recognition.start()
         }
     }
     recognition.onend = () => {
