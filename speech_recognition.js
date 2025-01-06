@@ -57,13 +57,19 @@ function start_rec_session(){
     }
     recognition.onerror = (event) => {
         console.error("Помилка розпізнавання:", event.error)
-        speach_rec.style.display = "none";
-        if (is_rec_going && event.error !== 'not-allowed') {
-            console.log("Спроба перезапуску розпізнавання після помилки...")
-            if (recognition && recognition.state !== "started") recognition.start()
+        speach_rec.style.display = "none"
+        if (event.error === 'not-allowed') {
+            console.log("Доступ до мікрофону заборонено користувачем або налаштуваннями браузера.")
+            return
         }
+        if (is_rec_going) {
+            console.log("Спроба перезапуску розпізнавання після помилки...")
+            recognition.start()
+        }
+        is_rec_going = false
     }
     recognition.onend = () => {
+        is_rec_going = false
         speach_rec.style.display = "none"
         if (is_rec_going) recognition.start(); else {
             console.log("Розпізнавання завершено")
