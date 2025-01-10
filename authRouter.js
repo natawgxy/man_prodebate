@@ -19,8 +19,7 @@ const registrationSchema = Joi.object({
         .min(1)
         .required()
         .messages({
-            'string.empty': 'Ім\'я та прізвище не можуть бути порожніми',
-            'string.pattern.base': 'Ім\'я та прізвище не можуть містити цифри'
+            'string.empty': 'Ім\'я та прізвище не можуть бути порожніми'
         }),
     age: Joi.number()
         .integer()
