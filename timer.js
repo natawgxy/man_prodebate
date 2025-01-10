@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const timer = document.querySelector('.timer')
     let time_left = 17 * 60
+    let timer1_goes = true
     function format_time(seconds){
         const minutes = Math.floor(seconds / 60)
         const sec = seconds % 60
@@ -17,7 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
             timer.textContent = format_time(time_left)
             if (time_left <= 0){
                 clearInterval(time_interval)
+                timer1_goes = false
                 timer.textContent = "Час на підготовку вичерпаний!"
+            }
+        }, 1000)
+    }
+    const timer2 = document.querySelector('.timer2')
+    let time_left2 = 5 * 60
+    function start_second_timer(){
+        const timer_interval = setInterval(() => {
+            time_left2--
+            timer2.textContent = format_time(time_left2)
+            if (time_left2 <= 0){
+                clearInterval(time_interval)
+                timer.textContent = "Час на виступ вичерпаний! Очікуйте результати"
             }
         }, 1000)
     }
@@ -49,4 +63,5 @@ document.addEventListener('DOMContentLoaded', () => {
     set_role()
     set_topic()
     start_timer()
+    if (timer1_goes === false) start_second_timer()
 })
