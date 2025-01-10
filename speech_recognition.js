@@ -9,6 +9,12 @@ const analysis = async(speechText) => {
             body: JSON.stringify({speech: speechText}) 
         })
         const result = await response.json()
+        const debate_experience = ""
+        const analysisLines = result.analysis.split('\n')
+        debate_experience = analysisLines[analysisLines.length - 1]
+        localStorage.setItem("debate_experience", debate_experience)
+        window.location.href = "registration.html"
+
         console.log("Відповідь сервера на запит про аналіз спіча:", result)
         const res = document.getElementById('results')
         if (result.analysis){

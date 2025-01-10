@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); 
         const form = document.getElementById('registration-form');
         const form_data = new FormData(form);
-
+        
+        const debate_experience = localStorage.getItem("debate_experience")
+        const exp = document.getElementById('experience')
+        exp.value = debate_experience
+        
         const goals = Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(goal => goal.value);
         form_data.set('goals', JSON.stringify(goals)); 
 
