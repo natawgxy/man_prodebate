@@ -100,10 +100,9 @@ header {
 }
 
 .trash{
-  /* display: inline-block;
-  vertical-align: middle */
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 #search, #profile, #logout{
@@ -115,6 +114,7 @@ header {
 .header-menu a{
     text-decoration: none;
     color: #000000;
+    gap: 20px;
     position: relative;
 }
 
@@ -133,10 +133,20 @@ header {
     width: 100%; /* Линия полностью отображается при наведении */
 }
 
+.reg-log-btn{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
 .register-button, .login-button {
   display: inline-block;
   text-decoration: none;
   border-radius: 34px;
+  width: 200px;
+  height: 28px;
   padding: 12px 24px; /* Adjusted padding for better spacing */
   font-size: 1em;
   font-weight: bold;
@@ -145,7 +155,6 @@ header {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Register button styling */
 .register-button {
   background-color: #c4c1ee;
   color: #0900b7;
