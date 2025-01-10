@@ -14,7 +14,7 @@ const router = new Router()
 // joi - для валидации
 const registrationSchema = Joi.object({
     name_and_surname: Joi.string()
-        .pattern(/^[A-Za-zА-Яа-яІіЇїЄєҐґ\s]+$/) // Allows only letters and spaces
+        .pattern(/^[A-Za-zА-Яа-яІіЇїЄєҐґ'ʼ-]+(?: [A-Za-zА-Яа-яІіЇїЄєҐґ'ʼ-]+)*$/)
         .trim()
         .min(1)
         .required()
