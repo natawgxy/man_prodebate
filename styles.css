@@ -279,6 +279,22 @@ th {
   font-weight: bold;
 }
   
+.text-container{
+  width: 70%;
+}
+
+.content {
+  display: flex; 
+  align-items: stretch;
+  gap: 20px;
+}
+
+.img1 {
+  height: 260px; 
+  max-width: 30%; 
+  object-fit: contain; 
+}
+
 
    
   
