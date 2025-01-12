@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             const token = localStorage.getItem('token');
             if (token) {
-                const userResponse = await fetch('http://localhost:5000/profile', {
+                const nickname = localStorage.getItem('nickname')
+                const userResponse = await fetch(`https://man-prodebate.onrender.com/profile?nickname=${nickname}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
