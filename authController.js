@@ -518,7 +518,6 @@ class authController{
                 return;
             }
             console.log("Отриманий спіч:", speech)
-            console.log("Тип даних:", typeof speech)
             const completion = await openai.chat.completions.create({
                 model: "gpt-3.5-turbo",
                 messages: [
