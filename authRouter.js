@@ -23,11 +23,13 @@ const registrationSchema = Joi.object({
         }),
     age: Joi.number()
         .integer()
-        .min(1)
+        .min(6)
+        .max(65)
         .required()
         .messages({
             'number.base': 'Вік повинен бути числом',
-            'number.min': 'Вік повинен бути додатнім числом'
+            'number.min': 'Вік повинен бути від 6 років',
+            'number.max': 'Вік не повинен перевищувати 65 років'
         }),
     experience: Joi.string()
         .trim()
