@@ -10,6 +10,7 @@ const analysis = async(speechText) => {
         })
         const result = await response.json()
         const debate_experience = ""
+        console.log("Відповідь чата джпт:", result)
         const analysisLines = result.analysis.split('\n')
         debate_experience = analysisLines[analysisLines.length - 1]
         localStorage.setItem("debate_experience", debate_experience)
