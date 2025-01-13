@@ -33,7 +33,8 @@ const analysis = async(speechText) => {
 const input_text = document.querySelector('.input-text')
 const analyze_button = document.getElementById('analyze-button')
 analyze_button.addEventListener('click', function(){
-    analysis(input_text)
+    const speech_text = input_text.value
+    analysis(speech_text)
 })
 
 // const start_button = document.getElementById("start")
